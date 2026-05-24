@@ -33,7 +33,7 @@ jobs:
     - name: Docker push
       run: |
         echo "Comenzando push"
-        docker push -t juanviv31/docker-graphql:0.0.2
+        docker push juanviv31/docker-graphql:0.0.2
         echo "Terminando push"
 
     # - name: Build the Docker image

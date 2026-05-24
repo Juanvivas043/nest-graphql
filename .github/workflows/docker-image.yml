@@ -23,6 +23,18 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        
+    
+    - name: Docker build
+      run: |
+        echo "Comenzando build"
+        docker build -t juanviv31/docker-graphql:0.0.2 .
+        echo "Build terminada"
+
+    - name: Docker push
+      run: |
+        echo "Comenzando push"
+        docker push juanviv31/docker-graphql:0.0.2 .
+        echo "Terminando push"
+
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)

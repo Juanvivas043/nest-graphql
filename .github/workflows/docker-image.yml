@@ -28,7 +28,7 @@ jobs:
       run: |
         echo "Comenzando build"
         docker build -t juanviv31/docker-graphql:0.0.2 .
-        docker build juanviv31/docker-graphql:latest .
+        docker build -t juanviv31/docker-graphql:latest .
         echo "Build terminada"
 
     - name: Docker push

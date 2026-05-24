@@ -24,12 +24,19 @@ jobs:
         major_pattern: "major: "
         minor_pattern: "feature: "
         format: "${major}.${minor}.${patch}-prerelease${increment}"
+      id: version
         
     - name: Docker login
       uses: docker/login-action@v4
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    - name: Version
+      run: |
+        echo "New version: $NEW_VERSION"
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
     
     # - name: Docker build
     #   run: |
